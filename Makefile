@@ -1,5 +1,5 @@
-STUID = 211220000
-STUNAME = 张三
+STUID = 202166191459
+STUNAME = 刘钊铖
 
 # DO NOT modify the following code!!!
 
