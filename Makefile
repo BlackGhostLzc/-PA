@@ -1,5 +1,5 @@
 STUID = 202166191459
-STUNAME = 刘钊铖
+STUNAME = BlackGhost
 
 # DO NOT modify the following code!!!
 
