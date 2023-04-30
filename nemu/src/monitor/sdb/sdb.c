@@ -59,6 +59,22 @@ static int cmd_q(char *args)
 
 static int cmd_help(char *args);
 
+static int cmd_si(char *args)
+{
+  printf("Hello\n");
+  return 0;
+}
+
+static int cmd_info(char *args)
+{
+  return 0;
+}
+
+static int cmd_x(char *args)
+{
+  return 0;
+}
+
 static struct
 {
   const char *name;
@@ -70,7 +86,9 @@ static struct
     {"q", "Exit NEMU", cmd_q},
 
     /* TODO: Add more commands */
-
+    {"si", "Execute one or more instructions of the program", cmd_si},
+    {"info", "Get information about registers(r) or breakpoints(w)", cmd_info},
+    {"x", "Get memory address' information", cmd_x},
 };
 
 #define NR_CMD ARRLEN(cmd_table)
