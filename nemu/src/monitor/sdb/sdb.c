@@ -61,11 +61,16 @@ static int cmd_help(char *args);
 
 static int cmd_si(char *args)
 {
-  int n = atoi(args);
-  for (int i = 0; i < n; i++)
+  int step = 0;
+  if (args == NULL)
   {
-    printf("Hello\n");
+    step = 1;
   }
+  else
+  {
+    step = atoi(args);
+  }
+  cpu_exec(step);
   return 0;
 }
 
