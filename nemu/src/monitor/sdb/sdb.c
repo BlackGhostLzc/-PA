@@ -85,7 +85,7 @@ static int cmd_info(char *args)
   {
   }
   else
-    printf("Unknown commandha\n");
+    printf("Unknown command ha\n");
   return 0;
 }
 
