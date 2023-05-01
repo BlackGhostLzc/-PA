@@ -76,6 +76,16 @@ static int cmd_si(char *args)
 
 static int cmd_info(char *args)
 {
+  if (args == NULL)
+    printf("Unknown command\n");
+
+  if (strcmp(args, "w") == 0)
+    isa_reg_display();
+  else if (strcmp(args, "w") == 0)
+  {
+  }
+  else
+    printf("Unknown command\n");
   return 0;
 }
 
