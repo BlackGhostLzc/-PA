@@ -77,7 +77,7 @@ static int cmd_si(char *args)
 static int cmd_info(char *args)
 {
   if (args == NULL)
-    printf("Unknown command haha\n");
+    printf("Unknown command\n");
 
   if (strcmp(args, "r") == 0)
     isa_reg_display();
@@ -85,7 +85,7 @@ static int cmd_info(char *args)
   {
   }
   else
-    printf("Unknown command ha\n");
+    printf("Unknown command\n");
   return 0;
 }
 
