@@ -79,9 +79,9 @@ static int cmd_info(char *args)
   if (args == NULL)
     printf("Unknown command\n");
 
-  if (strcmp(args, "r") == 0)
+  if (args[0] == 'r')
     isa_reg_display();
-  else if (strcmp(args, "w") == 0)
+  else if (args[0] == 'w')
   {
   }
   else
