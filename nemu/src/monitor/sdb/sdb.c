@@ -102,11 +102,12 @@ static int cmd_x(char *args)
   sscanf(N, "%d", &len);
   sscanf(EXPR, "%x", &address);
 
-  printf("0x%x:", address);
+  // printf("0x%x:", address);
   int i;
   for (i = 0; i < len; i++)
   {
-    printf("%08x ", paddr_read(address, 4));
+    printf("0x%x:", address);
+    printf("%08x \n", paddr_read(address, 4));
     address += 4;
   }
   printf("\n");
