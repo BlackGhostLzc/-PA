@@ -52,7 +52,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc)
   if (check_watchpoint(&point))
   {
     printf("Stoped at \e[1;36mWatchPoint(NO.%d)\e[0m: %s \n", point->NO, point->condation);
-    puts(_this->logbuf);
+    // puts(_this->logbuf);
     nemu_state.state = NEMU_STOP;
   }
 }
