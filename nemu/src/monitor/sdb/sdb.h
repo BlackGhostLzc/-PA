@@ -20,4 +20,19 @@
 
 word_t expr(char *e, bool *success);
 
+typedef struct watchpoint
+{
+    int NO;
+    struct watchpoint *next;
+    char condation[32];
+    word_t old_val;
+} WP;
+
+bool check_watchpoint(WP **point);
+
+WP *new_wp(char *condation, bool *success);
+
+void free_wp(int NO);
+
+void watchpoint_display();
 #endif
