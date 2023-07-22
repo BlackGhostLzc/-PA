@@ -48,7 +48,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc)
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
 
 // 需要扫描所有监视点
-#ifdef CONFIG_ITRACE
+#ifdef CONFIG_WATCHPOINT
   WP *point = NULL;
   if (check_watchpoint(&point))
   {
