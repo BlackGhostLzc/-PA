@@ -86,6 +86,7 @@ static int cmd_info(char *args)
     isa_reg_display();
   else if (args[0] == 'w')
   {
+    watchpoint_display();
   }
   else
     printf("Unknown command\n");
