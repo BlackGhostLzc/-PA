@@ -113,7 +113,7 @@ static void insert_free(WP *wp)
   wp->next = free_->next;
   free_->next = wp;
 }
-
+/*
 void watchpoint_display()
 {
   printf("NO. \t Condation\n");
@@ -124,6 +124,7 @@ void watchpoint_display()
     cur = cur->next;
   }
 }
+*/
 /*
 bool check_watchpoint(WP **point)
 {
