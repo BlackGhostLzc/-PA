@@ -17,7 +17,7 @@
 
 #define NR_WP 32
 
-static int number = 1;
+// static int number = 1;
 
 typedef struct watchpoint
 {
@@ -33,12 +33,13 @@ typedef struct watchpoint
 static WP wp_pool[NR_WP] = {};
 static WP *head = NULL, *free_ = NULL;
 
+/*
 static void insert_free(WP *wp)
 {
   wp->next = free_->next;
   free_->next = wp;
 }
-
+*/
 void init_wp_pool()
 {
   int i;
@@ -55,7 +56,7 @@ void init_wp_pool()
 }
 
 /* TODO: Implement the functionality of watchpoint */
-
+/*
 WP *new_wp(char *condation, bool *success)
 {
   if (free_->next == NULL)
@@ -110,6 +111,7 @@ void free_wp(int NO)
 
   printf("未找到 \e[1;36mWatchPoint(NO.%d)\e[0m\n", NO);
 }
+*/
 
 /*
 void watchpoint_display()
@@ -124,6 +126,7 @@ void watchpoint_display()
 }
 */
 
+/*
 bool check_watchpoint(WP **point)
 {
   WP *cur = head;
@@ -140,3 +143,4 @@ bool check_watchpoint(WP **point)
   }
   return false;
 }
+*/
