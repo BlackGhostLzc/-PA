@@ -124,7 +124,7 @@ void watchpoint_display()
     cur = cur->next;
   }
 }
-
+/*
 bool check_watchpoint(WP **point)
 {
   WP *cur = head;
@@ -141,3 +141,4 @@ bool check_watchpoint(WP **point)
   }
   return false;
 }
+*/
