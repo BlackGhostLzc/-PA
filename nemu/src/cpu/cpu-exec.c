@@ -48,6 +48,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc)
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
 
   // 需要扫描所有监视点
+  /*
   WP *point = NULL;
   if (check_watchpoint(&point))
   {
@@ -55,6 +56,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc)
     // puts(_this->logbuf);
     nemu_state.state = NEMU_STOP;
   }
+  */
 }
 
 static void exec_once(Decode *s, vaddr_t pc)
