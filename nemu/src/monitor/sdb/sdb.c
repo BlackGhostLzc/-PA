@@ -21,6 +21,7 @@
 #include "../../../include/memory/paddr.h"
 #include "../../../include/memory/host.h"
 #include "../../../include/memory/vaddr.h"
+#include "watchpoint.c"
 
 static int is_batch_mode = false;
 
@@ -114,6 +115,38 @@ static int cmd_x(char *args)
   return 0;
 }
 
+static int cmd_p(char *args)
+{
+  bool success;
+  uint32_t v = expr(args, &success);
+  if (success)
+    printf("%s = \e[1;36m%u\e[0m\n", args, v);
+  return 0;
+}
+
+static int cmd_w(char *args)
+{
+  bool success = true;
+  WP *point = new_wp(args, &success);
+  if (!success)
+  {
+    printf("Some thing wrong happend.\n");
+  }
+  else
+  {
+    printf("Created a \e[1;36mWatchPoint(NO.%d)\e[0m: %s \n", point->NO, point->condation);
+  }
+  return 0;
+}
+
+static int cmd_d(char *args)
+{
+  int NO;
+  sscanf(args, "%d", &NO);
+  free_wp(NO);
+  return 0;
+}
+
 static struct
 {
   const char *name;
@@ -128,6 +161,9 @@ static struct
     {"si", "Execute one or more instructions of the program", cmd_si},
     {"info", "Get information about registers(r) or breakpoints(w)", cmd_info},
     {"x", "Get memory address' information", cmd_x},
+    {"p", "p EXPR 求出表达式EXPR的值", cmd_p},
+    {"w", "w EXPR 当表达式EXPR的值发生变化时, 暂停程序执行", cmd_w},
+    {"d", "d N 删除序号为N的监视点", cmd_d},
 };
 
 #define NR_CMD ARRLEN(cmd_table)
