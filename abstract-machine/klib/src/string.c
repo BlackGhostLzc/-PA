@@ -32,9 +32,8 @@ char *strcat(char *dst, const char *src) {
   size_t len = strlen(dst);
   char* s = (char*)src;
   size_t i = 0;
-  while(*s != '\0'){
-    dst[len + i] = *s;
-    s++;
+  while(s[i] != '\0'){
+    dst[len + i] = s[i];
     i++;
   }
   dst[len + i] = '\0';
@@ -79,11 +78,23 @@ void *memcpy(void *out, const void *in, size_t n) {
   }
 
   return out;
-  // panic("Not implemented");
 }
 
 int memcmp(const void *s1, const void *s2, size_t n) {
-  panic("Not implemented");
+  char* t1 = (char*)s1;
+  char* t2 = (char*)s2; 
+
+  size_t i= 0;
+  for(i = 0; i < n && t1[i] != '\0' && t2[i] != '\0'; i++){
+    if(t1[i] != t2[i]){
+      return (int)(t1[i]) - (int)(t2[i]);
+    }
+  }
+
+  if(i == n){
+    return 0;
+  }
+  return (int)(t1[i]) - (int)(t2[i]);
 }
 
 #endif
