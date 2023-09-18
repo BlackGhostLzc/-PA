@@ -37,6 +37,7 @@ char *strcat(char *dst, const char *src) {
     s++;
     i++;
   }
+  dst[len + i] = '\0';
   return dst;
 }
 
