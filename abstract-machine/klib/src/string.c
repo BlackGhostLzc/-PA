@@ -24,10 +24,11 @@ char *strncpy(char *dst, const char *src, size_t n) {
 
 char *strcat(char *dst, const char *src) {
   char* d = dst;
+  char* s = (char*)src;
   while(*src != '\0'){
     *d = *src;
     d++;
-    src++;
+    s++;
   }
   *d = '\0';
   return dst;
