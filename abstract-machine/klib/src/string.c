@@ -52,7 +52,7 @@ int strcmp(const char *s1, const char *s2) {
     t2++;
   }
 
-  return 0;
+  return (int)(*t1) - (int)(*t2);
 }
 
 int strncmp(const char *s1, const char *s2, size_t n) {
@@ -77,6 +77,7 @@ void *memcpy(void *out, const void *in, size_t n) {
   for(size_t j = 0; j < n; j++){
     *(o + j) = *(i + j);
   }
+
   return out;
   // panic("Not implemented");
 }
