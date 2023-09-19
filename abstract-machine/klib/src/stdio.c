@@ -60,6 +60,8 @@ int vsprintf(char *out, const char *fmt, va_list ap)
         }
         if (d < 0)
           buf[buf_idx] = '-';
+        else
+          buf_idx--;
         while (buf_idx >= 0)
         {
           out[out_idx++] = buf[buf_idx--];
