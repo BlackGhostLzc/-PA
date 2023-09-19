@@ -12,7 +12,7 @@ int printf(const char *fmt, ...)
   va_start(ap, fmt);
 
   int ret = vsprintf(buf, fmt, ap);
-  va_end(ap);
+  // va_end(ap);
 
   if (ret > 0)
     putstr(buf);
