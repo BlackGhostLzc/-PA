@@ -41,6 +41,7 @@ int vsprintf(char *out, const char *fmt, va_list ap)
       break;
 
     case 1:
+      format_state = 0;
       switch (fmt[fmt_idx])
       {
       case 'd':
