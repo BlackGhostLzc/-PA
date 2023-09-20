@@ -20,7 +20,10 @@
 // #include "../monitor/sdb/watchpoint.c"
 #include "../monitor/sdb/sdb.h"
 
-void display_inst();
+void display_inst()
+{
+  printf("haha\n");
+}
 
 /* The assembly code of instructions executed is only output to the screen
  * when the number of instructions executed is less than this value.
