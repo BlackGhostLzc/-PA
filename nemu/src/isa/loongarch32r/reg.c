@@ -24,7 +24,6 @@ const char *regs[] = {
 
 void isa_reg_display()
 {
-  assert(0);
   int length = ARRLEN(regs);
   int i = 0;
   printf("=========寄存器信息=========\n");
