@@ -19,7 +19,6 @@
 #include <locale.h>
 // #include "../monitor/sdb/watchpoint.c"
 #include "../monitor/sdb/sdb.h"
-#include "../utils/itrace.c"
 
 void display_inst();
 
