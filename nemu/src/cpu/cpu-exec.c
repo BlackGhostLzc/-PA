@@ -20,6 +20,8 @@
 // #include "../monitor/sdb/watchpoint.c"
 #include "../monitor/sdb/sdb.h"
 
+void display_inst();
+
 /* The assembly code of instructions executed is only output to the screen
  * when the number of instructions executed is less than this value.
  * This is useful when you use the `si' command.
@@ -124,6 +126,7 @@ static void statistic()
 
 void assert_fail_msg()
 {
+  display_inst();
   isa_reg_display();
   statistic();
 }
