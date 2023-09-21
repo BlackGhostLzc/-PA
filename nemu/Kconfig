@@ -124,10 +124,15 @@ endmenu
 
 menu "Testing and Debugging"
 
-
 config TRACE
   bool "Enable tracer"
   default y
+
+config MTRACE
+  depends on TRACE
+  bool "Enable memory tracer"
+  default y
+
 
 config TRACE_START
   depends on TRACE
@@ -211,5 +216,6 @@ endchoice
 config RT_CHECK
   bool "Enable runtime checking"
   default y
+
 
 endmenu
