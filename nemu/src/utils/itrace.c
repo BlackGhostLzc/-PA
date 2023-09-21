@@ -2,6 +2,8 @@
 
 #define MAX_IRINGBUF 16
 
+#define ftrace_write log_write
+
 typedef struct
 {
     word_t pc;
