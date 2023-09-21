@@ -46,6 +46,7 @@ static char *log_file = NULL;
 static char *diff_so_file = NULL;
 static char *img_file = NULL;
 static int difftest_port = 1234;
+static char *elf_file = NULL;
 
 static long load_img()
 {
@@ -79,10 +80,11 @@ static int parse_args(int argc, char *argv[])
       {"diff", required_argument, NULL, 'd'},
       {"port", required_argument, NULL, 'p'},
       {"help", no_argument, NULL, 'h'},
+      {"elf", required_argument, NULL, 'e'},
       {0, 0, NULL, 0},
   };
   int o;
-  while ((o = getopt_long(argc, argv, "-bhl:d:p:", table, NULL)) != -1)
+  while ((o = getopt_long(argc, argv, "-bhl:d:p:e::", table, NULL)) != -1)
   {
     switch (o)
     {
@@ -98,6 +100,8 @@ static int parse_args(int argc, char *argv[])
     case 'd':
       diff_so_file = optarg;
       break;
+    case 'e':
+      elf_file = optarg;
     case 1:
       img_file = optarg;
       return 0;
@@ -141,6 +145,11 @@ void init_monitor(int argc, char *argv[])
 
   /* Initialize differential testing. */
   init_difftest(diff_so_file, img_size, difftest_port);
+
+  if (elf_file)
+  {
+    // init_ftracer(elf_file);
+  }
 
   /* Initialize the simple debugger. */
   init_sdb();

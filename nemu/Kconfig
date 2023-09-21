@@ -133,6 +133,11 @@ config MTRACE
   bool "Enable memory tracer"
   default y
 
+config FTRACE
+  depends on TRACE
+  bool "Enable Function tracer"
+  default y
+
 
 config TRACE_START
   depends on TRACE
