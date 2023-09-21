@@ -16,6 +16,15 @@
 #include <isa.h>
 #include "local-include/reg.h"
 
+#define REGISTERS_PER_LINE 4
+
+int min(int a, int b)
+{
+  if (a < b)
+    return a;
+  return b;
+}
+
 const char *regs[] = {
     "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
     "s0", "s1", "a0", "a1", "a2", "a3", "a4", "a5",
@@ -24,10 +33,16 @@ const char *regs[] = {
 
 void isa_reg_display()
 {
-  printf("hello\n");
-  for (int i = 0; i < 32; i++)
+  int length = ARRLEN(regs);
+  int i = 0;
+  printf("=========寄存器信息=========\n");
+  for (i = 0; i < length; i += REGISTERS_PER_LINE)
   {
-    printf("$%s\t0x%08x\n", regs[i], gpr(i));
+    for (int j = i; j < min(length, i + REGISTERS_PER_LINE); ++j)
+    {
+      printf("\e[1;36m%3s:\e[0m %#12x | ", regs[j], cpu.gpr[j]);
+    }
+    printf("\n");
   }
 }
 
