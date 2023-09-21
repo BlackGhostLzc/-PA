@@ -35,7 +35,7 @@ void isa_reg_display()
 {
   int length = ARRLEN(regs);
   int i = 0;
-  printf("\t \t=========寄存器信息=========\n");
+  printf("\t\t\t=========寄存器信息=========\n");
   for (i = 0; i < length; i += REGISTERS_PER_LINE)
   {
     for (int j = i; j < min(length, i + REGISTERS_PER_LINE); ++j)
