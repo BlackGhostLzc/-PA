@@ -17,7 +17,7 @@
 #include <cpu/cpu.h>
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
-#include "../../utils/ftrace/ftrace.h"
+// #include "../../utils/ftrace/ftrace.h"
 
 void trace_inst();
 
