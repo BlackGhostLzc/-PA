@@ -29,7 +29,7 @@ void trace_jal(Decode *s, int rd)
 {
   if (rd == 1)
   {
-    append(s->pc, s->dnpc, FT_CALL);
+    append_entry(s->pc, s->dnpc, FT_CALL);
   }
 }
 
