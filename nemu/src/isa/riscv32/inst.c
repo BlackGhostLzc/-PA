@@ -17,12 +17,40 @@
 #include <cpu/cpu.h>
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
+#include "../../utils/ftrace/ftrace.h"
 
 void trace_inst();
 
 #define R(i) gpr(i)
 #define Mr vaddr_read
 #define Mw vaddr_write
+
+void trace_jal(Decode *s, int rd)
+{
+#ifdef FTRACE
+  if (rd == 1)
+  {
+    append(s->pc, s->dnpc, FT_CALL);
+  }
+#endif
+}
+
+void trace_jalr(Decode *s, int rd)
+{
+#ifdef FTRACE
+  if (s->isa.inst.val == 0x00008067)
+  {
+    // jalr x0, 0(x1)
+    append(s->pc, s->dnpc, FT_RET);
+  }
+  else
+  {
+    // 有可能是，有可能不是，不是就 ??? 就可以
+    append(s->pc, s->dnpc, FT_CALL);
+  }
+
+#endif
+}
 
 enum
 {

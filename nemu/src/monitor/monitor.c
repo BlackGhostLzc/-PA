@@ -15,6 +15,7 @@
 
 #include <isa.h>
 #include <memory/paddr.h>
+#include "ftrace/ftrace.h"
 
 void init_rand();
 void init_log(const char *log_file);
@@ -148,7 +149,7 @@ void init_monitor(int argc, char *argv[])
 
   if (elf_file)
   {
-    // init_ftracer(elf_file);
+    init_ftracer(elf_file);
   }
 
   /* Initialize the simple debugger. */
