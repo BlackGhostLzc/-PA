@@ -27,7 +27,6 @@ typedef struct __FUNC__INFO
 
 static FUNC_INFO elf_funcs[MAX_ELF_FUNCS];
 
-static int elf_idx;
 static void append_elfunc(char *func_name, paddr_t start, size_t size);
 FUNC_INFO *check_func(paddr_t addr);
 
