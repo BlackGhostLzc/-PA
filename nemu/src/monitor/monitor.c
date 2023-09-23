@@ -150,6 +150,7 @@ void init_monitor(int argc, char *argv[])
 
   if (elf_file)
   {
+    printf("elf_file is not NULL\n");
     init_ftrace(elf_file);
   }
 
