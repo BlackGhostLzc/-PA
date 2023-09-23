@@ -27,7 +27,7 @@ typedef struct __FUNC__INFO
 
 static FUNC_INFO elf_funcs[MAX_ELF_FUNCS];
 
-static void append_elfunc(char *func_name, paddr_t start, size_t size);
+// static void append_elfunc(char *func_name, paddr_t start, size_t size);
 FUNC_INFO *check_func(paddr_t addr);
 
 // 拿到 elf 文件后初始化相关信息，填写好elf_funcs

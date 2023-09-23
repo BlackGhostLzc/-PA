@@ -37,7 +37,7 @@ static void read_from_file(FILE *elf, size_t offset, size_t size, void *dest)
 static void read_funcname_file(FILE *elf, size_t offset, size_t n, char *dest)
 {
     fseek(elf, offset, SEEK_SET);
-    size_t count = fread(dest, sizeof(char), n, elf);
+    fread(dest, sizeof(char), n, elf);
     // fgets(dest, n, elf);
 }
 

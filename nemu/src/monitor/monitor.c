@@ -149,7 +149,7 @@ void init_monitor(int argc, char *argv[])
 
   if (elf_file)
   {
-    init_ftracer(elf_file);
+    init_ftrace(elf_file);
   }
 
   /* Initialize the simple debugger. */
