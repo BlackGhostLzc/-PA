@@ -14,6 +14,7 @@
  ***************************************************************************************/
 
 #include <common.h>
+#include "./utils/ftrace/ftrace.h"
 
 void init_monitor(int, char *[]);
 void am_init_monitor();
@@ -32,7 +33,7 @@ int main(int argc, char *argv[])
   /* Start engine. */
   engine_start();
 
-  IFDEF(FTRACE, print_func_trace());
+  print_func_trace();
 
   return is_exit_status_bad();
 }
