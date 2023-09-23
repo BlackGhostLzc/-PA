@@ -4,6 +4,8 @@
 #include "ftrace.h"
 
 static int elf_idx = 0;
+
+static FUNC_INFO elf_funcs[MAX_ELF_FUNCS];
 static void append_elfunc(char *func_name, paddr_t start, size_t size)
 {
     strncpy(elf_funcs[elf_idx].func_name, func_name, sizeof(func_name));
