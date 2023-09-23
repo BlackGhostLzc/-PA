@@ -103,6 +103,7 @@ static int parse_args(int argc, char *argv[])
       break;
     case 'e':
       elf_file = optarg;
+      break;
     case 1:
       img_file = optarg;
       return 0;
