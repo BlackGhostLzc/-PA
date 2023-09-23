@@ -119,8 +119,8 @@ void init_ftrace(const char *elf_file)
 
 void append_entry(paddr_t cur, paddr_t des, int type)
 {
-    auto x = check_func(cur);
-    auto y = check_func(des);
+    FUNC_INFO *x = check_func(cur);
+    FUNC_INFO *y = check_func(des);
     if (x == NULL || y == NULL)
     {
         return;
