@@ -22,7 +22,7 @@ FUNC_INFO *check_func(paddr_t addr)
     for (int i = 0; i < elf_idx; i++)
     {
         FUNC_INFO *ret = &elf_funcs[i];
-        if (addr >= elf_funcs[i].start && addr < elf_funcs[i].start + elf_funcs[i].size)
+        if (addr >= elf_funcs[i].start && (addr < elf_funcs[i].start + elf_funcs[i].size))
         {
             return ret;
         }
