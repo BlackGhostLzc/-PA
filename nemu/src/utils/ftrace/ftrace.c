@@ -149,9 +149,9 @@ void print_func_trace()
 
         if (node->type == FT_CALL)
         {
-            printf("0x%08x ", node->addr);
+            printf("0x%08x ", node->addr); // 当前指令的地址
             printf("%*s", depth, "");
-            printf("call [%s@0x%08x] \n", node->des_info->func_name, node->des_info->addr);
+            printf("call [%s@0x%08x] \n", node->des_info->func_name, node->des_info->start);
             depth += 2;
         }
         else if (node->type == FT_RET)
