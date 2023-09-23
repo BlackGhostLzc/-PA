@@ -64,9 +64,6 @@ typedef struct __STACK_ENTRY_
     struct __STACK_ENTRY_ *next;
 } STACK_ENTRY;
 
-STACK_ENTRY stack_header;
-STACK_ENTRY *stack_cur = &stack_header;
-
 void append_entry(paddr_t cur, paddr_t des, int type);
 
 void init_ftrace(const char *elf_file); // 初始化 stack_header,调用 init elf

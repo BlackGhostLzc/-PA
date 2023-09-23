@@ -3,6 +3,9 @@
 
 #include "ftrace.h"
 
+STACK_ENTRY stack_header;
+STACK_ENTRY *stack_cur = &stack_header;
+
 static int elf_idx = 0;
 
 static FUNC_INFO elf_funcs[MAX_ELF_FUNCS];
