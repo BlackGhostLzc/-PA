@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
   /* Start engine. */
   engine_start();
 
-  print_func_trace();
+  IFDEF(FTRACE, print_func_trace());
 
   return is_exit_status_bad();
 }

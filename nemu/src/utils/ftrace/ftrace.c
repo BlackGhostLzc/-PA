@@ -155,14 +155,14 @@ void print_func_trace()
         {
             printf("0x%08x ", node->addr); // 当前指令的地址
             printf("%*s", depth, "");
-            printf("call [%s@0x%08x] \n", node->des_info->func_name, node->des_info->start);
+            printf("call [%s@0x%08x] \n", node->des_info->func_name, node->des_info->start); // 即将跳转到的目标函数名字和地址
             depth += 1;
         }
         else if (node->type == FT_RET)
         {
-            printf("0x%08x ", node->addr);
+            printf("0x%08x ", node->addr); // 当前指令的地址
             printf("%*s", depth, "");
-            printf("ret [%s] \n", node->des_info->func_name);
+            printf("ret [%s] \n", node->des_info->func_name); // 即将返回到的目标函数名字和地址
             depth -= 1;
         }
     }
