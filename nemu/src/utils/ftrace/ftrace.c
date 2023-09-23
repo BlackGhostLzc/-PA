@@ -142,7 +142,7 @@ void append_entry(paddr_t cur, paddr_t des, int type)
 void print_func_trace()
 {
     int depth = 0;
-    for (FUNC_INFO *node = stack_header.next; node != NULL; node = node->next)
+    for (STACK_ENTRY *node = stack_header.next; node != NULL; node = node->next)
     {
 
         if (node->type == FT_CALL)
