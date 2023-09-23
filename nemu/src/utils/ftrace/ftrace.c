@@ -106,7 +106,6 @@ void init_elf(const char *elf_file)
         if ((sym_entry.st_info & 0xf) == STT_FUNC)
         {
             // 首先要把函数名字读取出来
-            printf("add an entry\n");
             read_funcname_file(file, string_offset + sym_entry.st_name, sizeof(function_name), function_name);
             append_elfunc(function_name, sym_entry.st_value, sym_entry.st_size);
         }
