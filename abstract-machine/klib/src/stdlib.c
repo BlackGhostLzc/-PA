@@ -44,13 +44,16 @@ void *malloc(size_t size)
   //   panic() -> putchar() -> (glibc) -> malloc() -> panic()
 #if !(defined(__ISA_NATIVE__) && defined(__NATIVE_USE_KLIB__))
   // panic("Not implemented");
-  if (size % 4)
+  static int addr = 0;
+  size = (size_t)ROUNDUP(size, 4);
+  void *old = addr + heap.start;
+  addr += size;
+  for (uint64_t *p = (uint64_t *)old; p != (uint64_t *)(addr + heap.start); p++)
   {
-    size = (size / 4 + 1) * 4;
+    *p = 0;
   }
-  void *ret = heap.end;
-  heap.end += size;
-  return ret;
+  return old;
+
 #endif
   return NULL;
 }
