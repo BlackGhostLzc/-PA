@@ -48,7 +48,7 @@ void *malloc(size_t size)
   size = (size_t)ROUNDUP(size, 4);
   void *old = addr + heap.start;
   addr += size;
-  for (uint64_t *p = (uint64_t *)old; p != (uint64_t *)(addr + heap.start); p++)
+  for (uint32_t *p = (uint32_t *)old; p != (uint32_t *)(addr + heap.start); p++)
   {
     *p = 0;
   }
