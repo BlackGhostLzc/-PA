@@ -6,8 +6,9 @@
 void __am_gpu_init()
 {
   int i;
-  int w = 0; // TODO: get the correct width
-  int h = 0; // TODO: get the correct height
+
+  int w = (inl(VGACTL_ADDR) >> 16);     // TODO: get the correct width
+  int h = (inl(VGACTL_ADDR) && 0xffff); // TODO: get the correct height
   uint32_t *fb = (uint32_t *)(uintptr_t)FB_ADDR;
   for (i = 0; i < w * h; i++)
     fb[i] = i;
