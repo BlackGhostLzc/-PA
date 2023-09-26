@@ -26,9 +26,22 @@ void __am_gpu_config(AM_GPU_CONFIG_T *cfg)
 
 void __am_gpu_fbdraw(AM_GPU_FBDRAW_T *ctl)
 {
+  // ctl int x, y; void *pixels; int w, h; bool sync
+  // 要把这些内容写入显存中 uint32_t *fb = (uint32_t *)(uintptr_t)FB_ADDR
+  uint32_t screen_w = inl(VGACTL_ADDR) >> 16;
+  uint32_t *fb = (uint32_t *)(uintptr_t)FB_ADDR;
+  uint32_t *p = ctl->pixels;
+
+  for (int y = ctl->y; y < ctl->y + ctl->h; y++)
+  {
+    for (int x = ctl->x; x < ctl->x + ctl->w; x++)
+    {
+      fb[y * screen_w + x] = p[(y - ctl->y) * screen_w + x - ctl->x];
+    }
+  }
+
   if (ctl->sync)
   {
-
     outl(SYNC_ADDR, 1);
   }
 }
