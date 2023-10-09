@@ -21,6 +21,12 @@ typedef struct
 // Arch-dependent processor context
 typedef struct Context Context;
 
+enum
+{
+
+  E_CALL_M_MODE = 11, // 根据文档提示， 所有的系统调用都是在机器模式
+};
+
 // An event of type @event, caused by @cause of pointer @ref
 typedef struct
 {
