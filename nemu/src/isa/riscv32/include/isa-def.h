@@ -27,18 +27,12 @@ typedef struct{
 
 typedef union mstatus_t {
   struct{
-    uint32_t MIE : 1;     // 中断使能位
-    uint32_t MPIE : 1;    // 先前中断使能位
-    uint32_t MPP : 2;     // 先前特权级别
-    uint32_t MPRV : 1;    // 加载和存储特权模式位
-    uint32_t MXR : 1;     // 执行权限位
-    uint32_t SUM : 1;     // 用户态访问控制位
-    uint32_t TVM : 1;     // 虚拟化模式位
-    uint32_t TW1 : 1;      // 态度控制位
-    uint32_t TSR : 1;     // 时钟模式位
-    uint32_t TW2 : 1;      // 写时钟模式位
-    uint32_t UXL : 3;     // 用户模式扩展位
-  };
+    uint32_t UIE: 1, SIE: 1, WPRI_0: 1, MIE: 1;
+    uint32_t UPIE: 1, SPIE: 1, WPRI: 1, MPIE: 1;
+    uint32_t SPP: 1, WPRI_1_2: 2, MPP: 2, FS: 2;
+    uint32_t XS: 2, MPRV: 1, SUM: 1, MXR: 1;
+    uint32_t TVM: 1, TW: 1, TSR: 1, WPRI_3_10: 8, SD: 1;
+  } part;
   word_t val;
 } mstatus_t;
 
