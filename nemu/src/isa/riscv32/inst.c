@@ -52,16 +52,16 @@ vaddr_t *csr_addr(word_t x)
 
 void mret_help(Decode *s)
 {
-  /*
+
   mstatus_t mstatus;
   mstatus.val = cpu.csr.mstatus;
 
   mstatus.MIE = mstatus.MPIE;
   mstatus.MPIE = 1;
+  mstatus.MPP = 0;
+
   cpu.csr.mstatus = mstatus.val;
 
-  s->dnpc = cpu.csr.mepc;
-  */
   s->dnpc = cpu.csr.mepc;
 }
 

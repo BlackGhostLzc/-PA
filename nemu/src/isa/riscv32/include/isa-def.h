@@ -32,7 +32,7 @@ typedef union mstatus_t {
     uint32_t SPP: 1, WPRI_1_2: 2, MPP: 2, FS: 2;
     uint32_t XS: 2, MPRV: 1, SUM: 1, MXR: 1;
     uint32_t TVM: 1, TW: 1, TSR: 1, WPRI_3_10: 8, SD: 1;
-  } part;
+  };
   word_t val;
 } mstatus_t;
 

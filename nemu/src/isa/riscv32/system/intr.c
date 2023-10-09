@@ -22,13 +22,15 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
    */
   // NO 是
   // epc 是当前 pc 的值
-  /*
-  cpu.csr.mcause = NO;
-  cpu.csr.mepc = epc;
-  return cpu.csr.mtvec;
-  */
+
   cpu.csr.mepc = epc;
   cpu.csr.mcause = NO;
+
+  mstatus_t mstatus;
+  mstatus.val = cpu.csr.mstatus;
+  ;
+  mstatus.MPIE = mstatus.MIE;
+  mstatus.MIE = 0;
 
   return cpu.csr.mtvec;
 }
