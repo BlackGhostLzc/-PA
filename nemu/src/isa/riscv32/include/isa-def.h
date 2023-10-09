@@ -25,6 +25,22 @@ typedef struct{
   word_t mtvec;
 }riscv32_CSRs;
 
+typedef union mstatus_t {
+  struct{
+    uint32_t MIE : 1;     // 中断使能位
+    uint32_t MPIE : 1;    // 先前中断使能位
+    uint32_t MPP : 2;     // 先前特权级别
+    uint32_t MPRV : 1;    // 加载和存储特权模式位
+    uint32_t MXR : 1;     // 执行权限位
+    uint32_t SUM : 1;     // 用户态访问控制位
+    uint32_t TVM : 1;     // 虚拟化模式位
+    uint32_t TW1 : 1;      // 态度控制位
+    uint32_t TSR : 1;     // 时钟模式位
+    uint32_t TW2 : 1;      // 写时钟模式位
+    uint32_t UXL : 3;     // 用户模式扩展位
+  };
+  word_t val;
+} mstatus_t;
 
 typedef struct
 {
