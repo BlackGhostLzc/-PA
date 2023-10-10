@@ -36,7 +36,7 @@ typedef struct
     EVENT_YIELD,
     EVENT_SYSCALL,
     EVENT_PAGEFAULT,
-    EVENT_ERROR,
+    EVENT_ERROR = 4,
     EVENT_IRQ_TIMER,
     EVENT_IRQ_IODEV,
   } event;
