@@ -138,6 +138,10 @@ config FTRACE
   bool "Enable Function tracer"
   default y
 
+config ITRACE
+  depends on TRACE
+  bool "Enable Syscall tracer"
+  default y
 
 config TRACE_START
   depends on TRACE
