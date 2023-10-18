@@ -117,7 +117,7 @@ size_t fs_write(int fd, const void *buf, size_t len)
 
 size_t fs_lseek(int fd, size_t offset, int whence)
 {
-  /*
+
   size_t new_offset;
   switch (whence)
   {
@@ -143,31 +143,6 @@ size_t fs_lseek(int fd, size_t offset, int whence)
     return new_offset - file_table[fd].disk_offset;
   }
   return -1;
-  */
-  Finfo *info = &file_table[fd];
-
-  switch (whence)
-  {
-  case SEEK_CUR:
-    assert(info->open_offset + offset <= info->size);
-    info->open_offset += offset;
-    break;
-
-  case SEEK_SET:
-    assert(offset <= info->size);
-    info->open_offset = offset;
-    break;
-
-  case SEEK_END:
-    assert(offset <= info->size);
-    info->open_offset = info->size + offset;
-    break;
-
-  default:
-    assert(0);
-  }
-
-  return info->open_offset;
 }
 
 int fs_close(int fd)
