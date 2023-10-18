@@ -25,13 +25,16 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
 
   cpu.csr.mepc = epc;
   cpu.csr.mcause = NO;
-
+  /*
   mstatus_t mstatus;
   mstatus.val = cpu.csr.mstatus;
-  ;
   mstatus.MPIE = mstatus.MIE;
   mstatus.MIE = 0;
-
+  */
+  cpu.csr.mstatus &= ~(1 << 7);
+  cpu.csr.mstatus |= ((cpu.csr.mstatus & (1 << 3)) << 4);
+  cpu.csr.mstatus &= ~(1 << 3);
+  cpu.csr.mstatus |= ((1 << 11) + (1 << 12));
   return cpu.csr.mtvec;
 }
 
