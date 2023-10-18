@@ -36,7 +36,7 @@ int main()
     fscanf(fp, "%d", &n);
     assert(n == i + 1 + 1000);
   }
-
+  assert(0);
   fclose(fp);
   assert(0);
   printf("PASS!!!\n");
