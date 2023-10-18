@@ -17,7 +17,7 @@ int main()
     fscanf(fp, "%d", &n);
     assert(n == i + 1);
   }
-
+  assert(0);
   fseek(fp, 0, SEEK_SET);
   for (i = 0; i < 500; i++)
   {
