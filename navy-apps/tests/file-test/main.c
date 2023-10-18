@@ -5,6 +5,7 @@ int main()
 {
 
   FILE *fp = fopen("/share/files/num", "r+");
+  assert(0);
   assert(fp);
 
   assert(0);
