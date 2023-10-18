@@ -14,6 +14,7 @@ size_t ramdisk_write(const void *buf, size_t offset, size_t len);
 
 static uintptr_t loader(PCB *pcb, const char *filename)
 {
+  // int fd = fs_open(filename, 0, 0);
   Elf_Ehdr ehdr;
   ramdisk_read(&ehdr, 0, sizeof(Elf_Ehdr));
   // check valid elf
@@ -36,6 +37,7 @@ static uintptr_t loader(PCB *pcb, const char *filename)
 void naive_uload(PCB *pcb, const char *filename)
 {
   // 这是一个批处理程序，没有实现并发
+  printf("%s \n\n\n", filename);
   uintptr_t entry = loader(pcb, filename);
   Log("Jump to entry = %p", entry);
   ((void (*)())entry)();
