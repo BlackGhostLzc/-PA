@@ -12,6 +12,7 @@ int main()
 
   fseek(fp, 500 * 5, SEEK_SET);
   int i, n;
+  assert(0);
   for (i = 500; i < 1000; i++)
   {
     fscanf(fp, "%d", &n);
