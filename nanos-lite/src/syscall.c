@@ -96,7 +96,6 @@ void sys_yield(Context *c)
 
 void sys_exit(Context *c)
 {
-  return;
   if (c->GPR2 == 0)
     halt(0);
   else
