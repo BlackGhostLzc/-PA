@@ -22,7 +22,7 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
    */
   // NO 是
   // epc 是当前 pc 的值
-  printf("open\n");
+  // printf("open\n");
   cpu.csr.mepc = epc;
   cpu.csr.mcause = NO;
   /*
