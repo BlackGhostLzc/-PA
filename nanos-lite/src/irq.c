@@ -4,6 +4,7 @@ void do_syscall(Context *c);
 
 static Context *do_event(Event e, Context *c)
 {
+  printf("a7 is %d\n", c->GPR1);
   switch (e.event)
   {
   case EVENT_YIELD:
