@@ -99,20 +99,20 @@ void *_sbrk(intptr_t increment)
 
 int _read(int fd, void *buf, size_t count)
 {
-  _exit(SYS_read);
-  return 0;
+  int ret = _syscall_(SYS_read, fd, (intptr_t)(buf), count);
+  return ret;
 }
 
 int _close(int fd)
 {
-  _exit(SYS_close);
-  return 0;
+  int ret = _syscall_(SYS_read, 0, 0, 0);
+  return ret;
 }
 
 off_t _lseek(int fd, off_t offset, int whence)
 {
-  _exit(SYS_lseek);
-  return 0;
+  int ret = _syscall_(SYS_lseek, fd, offset, whence);
+  return ret;
 }
 
 int _gettimeofday(struct timeval *tv, struct timezone *tz)
