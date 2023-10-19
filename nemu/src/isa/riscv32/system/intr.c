@@ -25,6 +25,7 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
   // printf("open\n");
   cpu.csr.mepc = epc;
   cpu.csr.mcause = NO;
+  printf("mcause is %d\n", cpu.csr.mcause);
   /*
   mstatus_t mstatus;
   mstatus.val = cpu.csr.mstatus;
