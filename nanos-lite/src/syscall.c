@@ -71,7 +71,7 @@ void do_syscall(Context *c)
     panic("Unhandled syscall ID = %d", a[0]);
   }
 
-#ifdef CONFIG_ITRACE
+#ifdef CONFIG_SYSCALLTRACE
   printf("SYSCALL:       [%s] -> %ld\n", syscall_names[a[0]], c->GPRx);
 #endif
 }
