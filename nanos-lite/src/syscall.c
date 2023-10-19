@@ -15,15 +15,8 @@ int fs_close(int fd);
 
 void sys_write(Context *c)
 {
-  // if (c->GPR2 == 1 || c->GPR2 == 2){
-  //   for (int i = 0; i < c->GPR4; ++i){
-  //     putch(*(((char *)c->GPR3) + i));
-  //   }
-  //   c->GPRx = c->GPR4;
-  // }else {
   int ret = fs_write(c->GPR2, (void *)c->GPR3, c->GPR4);
   c->GPRx = ret;
-  // }
 }
 
 void do_syscall(Context *c)
@@ -34,7 +27,7 @@ void do_syscall(Context *c)
   a[2] = c->GPR3; // a1
   a[3] = c->GPR4;
 
-#ifdef CONFIG_STRACE
+#ifdef CONFIG_SYSCALLTRACE
   printf("STRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
 #endif
 
