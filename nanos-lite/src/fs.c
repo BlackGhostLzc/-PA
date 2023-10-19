@@ -56,18 +56,13 @@ int fs_close(int fd);
 
 int fs_open(const char *pathname, int flags, int mode)
 {
-  putch('#');
-  putch('\n');
-  printf("%s\n", pathname);
   // 遍历 file_table 数组，找到文件名，返回下标作为文件描述符
   for (int i = 0; i < LENGTH(file_table); i++)
   {
     if (file_table[i].name && strcmp(pathname, file_table[i].name) == 0)
     {
       // 设置 open_offset
-      printf("%d\n", i);
       file_table[i].open_offset = file_table[i].disk_offset;
-      printf("%d\n", i);
       return i;
     }
   }
