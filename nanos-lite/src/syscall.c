@@ -151,7 +151,7 @@ void do_syscall(Context *c)
   a[1] = c->GPR2; // a0
   a[2] = c->GPR3; // a1
   a[3] = c->GPR4; // a2
-  printf("SYSCALLTRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
+  // printf("SYSCALLTRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
   switch (a[0])
   {
   case SYS_yield:
