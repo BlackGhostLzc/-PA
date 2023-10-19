@@ -13,6 +13,19 @@ size_t fs_write(int fd, const void *buf, size_t len);
 size_t fs_lseek(int fd, size_t offset, int whence);
 int fs_close(int fd);
 
+void sys_write(Context *c)
+{
+  // if (c->GPR2 == 1 || c->GPR2 == 2){
+  //   for (int i = 0; i < c->GPR4; ++i){
+  //     putch(*(((char *)c->GPR3) + i));
+  //   }
+  //   c->GPRx = c->GPR4;
+  // }else {
+  int ret = fs_write(c->GPR2, (void *)c->GPR3, c->GPR4);
+  c->GPRx = ret;
+  // }
+}
+
 void do_syscall(Context *c)
 {
   uintptr_t a[4];
@@ -36,7 +49,7 @@ void do_syscall(Context *c)
     c->GPRx = 0;
     break;
   case SYS_write:
-    c->GPRx = fs_write(a[1], (void *)a[2], a[3]);
+    sys_write(c);
     break;
 
     /*
