@@ -96,7 +96,7 @@ void sys_yield(Context *c)
 
 void sys_exit(Context *c)
 {
-  // halt(0);
+  halt(0);
   c->GPRx = 0;
 }
 void sys_write(Context *c)
