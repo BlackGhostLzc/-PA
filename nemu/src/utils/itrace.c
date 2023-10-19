@@ -47,7 +47,9 @@ void display_inst()
         if ((i + 1) % MAX_IRINGBUF == end)
             printf(ANSI_FG_RED);
         puts(buf);
+        *p = '\n';
         fprintf(file, buf);
+        // fprintf(file, '\n');
     } while ((i = (i + 1) % MAX_IRINGBUF) != end);
     puts(ANSI_NONE);
 }
