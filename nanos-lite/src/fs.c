@@ -58,6 +58,7 @@ int fs_open(const char *pathname, int flags, int mode)
 {
   putch('#');
   putch('\n');
+  printf("%s\n", pathname);
   // 遍历 file_table 数组，找到文件名，返回下标作为文件描述符
   for (int i = 0; i < LENGTH(file_table); i++)
   {
