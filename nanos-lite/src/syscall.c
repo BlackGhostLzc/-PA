@@ -36,7 +36,7 @@ void do_syscall(Context *c)
   case SYS_exit:
     halt(a[1]);
     // c->GPR4 = a[1];
-    c->GPRx = 0;
+    c->GPRx = a[1];
     break;
   case SYS_yield:
     yield();
