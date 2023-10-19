@@ -25,17 +25,14 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
   // printf("open\n");
   cpu.csr.mepc = epc;
   cpu.csr.mcause = NO;
-  printf("mcause is %d\n", cpu.csr.mcause);
-  /*
+  // printf("mcause is %d\n", cpu.csr.mcause);
+
   mstatus_t mstatus;
   mstatus.val = cpu.csr.mstatus;
   mstatus.MPIE = mstatus.MIE;
   mstatus.MIE = 0;
-  */
-  cpu.csr.mstatus &= ~(1 << 7);
-  cpu.csr.mstatus |= ((cpu.csr.mstatus & (1 << 3)) << 4);
-  cpu.csr.mstatus &= ~(1 << 3);
-  cpu.csr.mstatus |= ((1 << 11) + (1 << 12));
+  cpu.csr.mstatus = mstatus.val;
+
   return cpu.csr.mtvec;
 }
 
