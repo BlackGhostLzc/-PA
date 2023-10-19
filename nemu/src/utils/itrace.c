@@ -1,4 +1,5 @@
 #include <common.h>
+#include <stdio.h>
 
 #define MAX_IRINGBUF 2024
 
@@ -34,6 +35,9 @@ void display_inst()
     char buf[128]; // 128 should be enough!
     char *p;
     printf("Most recently executed instructions\n");
+
+    FILE *file = fopen("/home/blackghost/Desktop/ics-pa-2022/asm.txt", "w");
+
     do
     {
         p = buf;
@@ -43,6 +47,7 @@ void display_inst()
         if ((i + 1) % MAX_IRINGBUF == end)
             printf(ANSI_FG_RED);
         puts(buf);
+        fprintf(file, buf);
     } while ((i = (i + 1) % MAX_IRINGBUF) != end);
     puts(ANSI_NONE);
 }
