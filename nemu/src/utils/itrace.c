@@ -1,6 +1,6 @@
 #include <common.h>
 
-#define MAX_IRINGBUF 16
+#define MAX_IRINGBUF 256
 
 #define ftrace_write log_write
 
