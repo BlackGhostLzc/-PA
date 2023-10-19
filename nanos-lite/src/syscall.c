@@ -96,8 +96,10 @@ void sys_yield(Context *c)
 
 void sys_exit(Context *c)
 {
-  halt(0);
-  c->GPRx = 0;
+  if (c->GPR2 == 0)
+    halt(0);
+  else
+    c->GPRx = c->GPR2;
 }
 void sys_write(Context *c)
 {
