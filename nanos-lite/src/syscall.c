@@ -36,9 +36,6 @@ void do_syscall(Context *c)
     c->GPRx = 0;
     break;
   case SYS_write:
-    putch('\n');
-    putch('\n');
-    putch('\n');
     c->GPRx = fs_write(a[1], (void *)a[2], a[3]);
     break;
 
@@ -64,7 +61,7 @@ void do_syscall(Context *c)
 
   case SYS_open:
     // printf("hahaha怎么回事呢\n");
-    int ret = fs_open((char *)c->GPR1, c->GPR2, c->GPR3);
+    int ret = fs_open((char *)c->GPR2, c->GPR3, c->GPR4);
     c->GPRx = ret;
     // printf("open\n\n\n\n");
     break;
