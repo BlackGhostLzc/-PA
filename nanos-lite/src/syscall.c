@@ -27,9 +27,9 @@ void do_syscall(Context *c)
   a[2] = c->GPR3; // a1
   a[3] = c->GPR4;
 
-#ifdef CONFIG_SYSCALLTRACE
+  // #ifdef CONFIG_SYSCALLTRACE
   printf("STRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
-#endif
+  // #endif
 
   switch (a[0])
   {
@@ -80,7 +80,7 @@ void do_syscall(Context *c)
     panic("Unhandled syscall ID = %d", a[0]);
   }
 
-#ifdef CONFIG_SYSCALLTRACE
-  printf("SYSCALL:       [%s] -> %ld\n", syscall_names[a[0]], c->GPRx);
-#endif
+  // #ifdef CONFIG_SYSCALLTRACE
+  //  printf("SYSCALL:       [%s] -> %ld\n", syscall_names[a[0]], c->GPRx);
+  // #endif
 }
