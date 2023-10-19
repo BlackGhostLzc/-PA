@@ -60,7 +60,8 @@ void do_syscall(Context *c)
     break;
 
   case SYS_open:
-    c->GPRx = fs_open((char *)a[1], a[2], a[3]);
+    int ret = fs_open((char *)c->GPR1, c->GPR2, c->GPR3);
+    c->GPRx = ret;
     printf("open\n\n\n\n");
     break;
 
