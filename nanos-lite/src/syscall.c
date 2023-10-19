@@ -28,7 +28,7 @@ void do_syscall(Context *c)
   a[3] = c->GPR4;
 
   // #ifdef CONFIG_SYSCALLTRACE
-  printf("STRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
+  printf("SYSCALLTRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
   // #endif
 
   switch (a[0])
