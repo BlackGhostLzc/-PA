@@ -66,6 +66,7 @@ int fs_open(const char *pathname, int flags, int mode)
       // 设置 open_offset
       printf("%d\n", i);
       file_table[i].open_offset = file_table[i].disk_offset;
+      printf("%d\n", i);
       return i;
     }
   }
