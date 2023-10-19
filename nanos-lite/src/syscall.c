@@ -96,10 +96,7 @@ void sys_yield(Context *c)
 
 void sys_exit(Context *c)
 {
-  if (c->GPR2 == 0)
-    halt(0);
-  else
-    c->GPRx = c->GPR2;
+  c->GPRx = c->GPR2;
 }
 void sys_write(Context *c)
 {
@@ -149,10 +146,10 @@ void sys_lseek(Context *c)
 void do_syscall(Context *c)
 {
   uintptr_t a[4];
-  a[0] = c->GPR1;
-  a[1] = c->GPR2;
-  a[2] = c->GPR3;
-  a[3] = c->GPRx;
+  a[0] = c->GPR1; // a7
+  a[1] = c->GPR2; // a0
+  a[2] = c->GPR3; // a1
+  a[3] = c->GPR4; // a2
   printf("SYSCALLTRACE: [#%3ld]( %ld, %ld, %ld )\n", a[0], a[1], a[2], a[3]);
   switch (a[0])
   {
