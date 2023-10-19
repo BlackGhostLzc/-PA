@@ -76,7 +76,7 @@ static uintptr_t loader(PCB *pcb, const char *filename)
     }
   }
   printf("hahahahah\n");
-  assert(0);
+  // assert(0);
   return ehdr.e_entry;
 
   /*
