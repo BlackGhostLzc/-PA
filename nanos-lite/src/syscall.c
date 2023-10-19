@@ -37,6 +37,8 @@ void do_syscall(Context *c)
     break;
   case SYS_write:
     putch('\n');
+    putch('\n');
+    putch('\n');
     c->GPRx = fs_write(a[1], (void *)a[2], a[3]);
     break;
 
