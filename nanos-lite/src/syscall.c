@@ -60,6 +60,7 @@ void do_syscall(Context *c)
     break;
 
   case SYS_open:
+    printf("hahaha怎么回事呢\n");
     int ret = fs_open((char *)c->GPR1, c->GPR2, c->GPR3);
     c->GPRx = ret;
     printf("open\n\n\n\n");
