@@ -1,7 +1,7 @@
 #include <common.h>
 #include <stdio.h>
 
-#define MAX_IRINGBUF 10000
+#define MAX_IRINGBUF 16
 
 #define ftrace_write log_write
 
