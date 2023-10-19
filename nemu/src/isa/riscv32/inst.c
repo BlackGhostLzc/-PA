@@ -52,7 +52,7 @@ vaddr_t *csr_addr(word_t x)
 
 void mret_help(Decode *s)
 {
-
+  /*
   mstatus_t mstatus;
   mstatus.val = cpu.csr.mstatus;
 
@@ -62,6 +62,12 @@ void mret_help(Decode *s)
 
   cpu.csr.mstatus = mstatus.val;
 
+  s->dnpc = cpu.csr.mepc;
+  */
+  cpu.csr.mstatus &= ~(1 << 3);
+  cpu.csr.mstatus |= ((cpu.csr.mstatus & (1 << 7)) >> 4);
+  cpu.csr.mstatus |= (1 << 7);
+  cpu.csr.mstatus &= ~((1 << 11) + (1 << 12));
   s->dnpc = cpu.csr.mepc;
 }
 
