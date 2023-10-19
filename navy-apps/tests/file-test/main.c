@@ -5,6 +5,7 @@ int main()
 {
   // assert(0);
   printf("here0\n");
+  FILE *fp1 = fopen("/bin/hello", "r+");
   FILE *fp = fopen("/share/files/num", "r+");
   printf("here3\n");
   assert(0);
