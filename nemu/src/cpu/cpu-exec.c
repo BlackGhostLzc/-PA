@@ -160,7 +160,7 @@ void cpu_exec(uint64_t n)
 
   case NEMU_END:
   case NEMU_ABORT:
-    // display_inst();
+    display_inst();
     // assert_fail_msg();
     printf("nemu_state.halt_ret is %d\n", nemu_state.halt_ret);
     Log("nemu: %s at pc = " FMT_WORD,
