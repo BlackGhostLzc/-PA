@@ -35,7 +35,7 @@ void do_syscall(Context *c)
   {
   case SYS_exit:
     // naive_uload(NULL, "/bin/menu");
-    halt(a[1]);
+    // halt(a[1]);
     // c->GPR4 = a[1];
     c->GPRx = a[1];
     break;
