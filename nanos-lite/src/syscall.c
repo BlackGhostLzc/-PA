@@ -40,7 +40,7 @@ void do_syscall(Context *c)
     c->GPRx = a[1];
     break;
   case SYS_yield:
-    yield();
+    // yield();
     c->GPRx = 0;
     break;
   case SYS_write:
