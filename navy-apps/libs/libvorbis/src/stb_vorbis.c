@@ -4973,7 +4973,7 @@ int stb_vorbis_decode_memory(const uint8 *mem, int len, int *channels, int *samp
 {
    int data_len, offset, total, limit, error;
    short *data;
-   stb_vorbis *v = stb_vorbis_open_memory(mem, len, &error, NULL);
+   stb_vorbis *v = stb_vorbis_memory(mem, len, &error, NULL);
    if (v == NULL) return -1;
    limit = v->channels * 4096;
    *channels = v->channels;

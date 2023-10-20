@@ -158,7 +158,7 @@ extern "C" int execve(const char *filename, char *const argv[], char *const envp
 FILE *fopen(const char *path, const char *mode) {
   char newpath[512];
   if (glibc_fopen == NULL) {
-    // printf("here1\n");
+    printf("here1\n\n\n\n\n\n");
     glibc_fopen = (FILE*(*)(const char*, const char*))dlsym(RTLD_NEXT, "fopen");
     assert(glibc_fopen != NULL);
   }
